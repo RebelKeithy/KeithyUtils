@@ -51,4 +51,14 @@ public class Coord
 		
 		return coords;
 	}
+	
+	public int getBlockID(World world)
+	{
+		return world.getBlockId(x, y, z);
+	}
+	
+	public int getMetadata(World world)
+	{
+		return world.getBlockMetadata(x, y, z);
+	}
 }

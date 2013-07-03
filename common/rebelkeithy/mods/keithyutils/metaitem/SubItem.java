@@ -17,6 +17,7 @@ public class SubItem
 	
 	public String unlocalizedName;
 	private Icon itemIcon;
+	private String textureName;
 	
 	public SubItem(int id)
 	{
@@ -59,6 +60,12 @@ public class SubItem
         this.unlocalizedName = par1Str;
         return this;
     }
+    
+    public SubItem setTextureName(String str)
+    {
+    	this.textureName = str;
+    	return this;
+    }
 	
 	public ItemStack getItemStack()
 	{
@@ -77,7 +84,7 @@ public class SubItem
 
 	public void registerIcons(IconRegister par1IconRegister) 
 	{
-        this.itemIcon = par1IconRegister.registerIcon(this.unlocalizedName);
+        this.itemIcon = par1IconRegister.registerIcon(this.textureName);
 	}
 
 	public ItemStack onEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) 
