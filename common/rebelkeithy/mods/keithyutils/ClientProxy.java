@@ -9,10 +9,6 @@ import cpw.mods.fml.relauncher.Side;
 
 public class ClientProxy extends CommonProxy
 {
-	public File getMinecraftDir() 
-	{
-		return Minecraft.getMinecraftDir();
-	}
 	
 	public void registerParticles()
 	{

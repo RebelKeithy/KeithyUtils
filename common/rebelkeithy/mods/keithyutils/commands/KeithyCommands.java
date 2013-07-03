@@ -36,5 +36,11 @@ public class KeithyCommands extends CommandBase
 			}
 		}
 	}
+
+	@Override
+	public String getCommandUsage(ICommandSender icommandsender) 
+	{
+		return null;
+	}
 	
 }

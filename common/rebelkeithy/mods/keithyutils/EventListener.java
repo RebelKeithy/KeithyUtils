@@ -47,7 +47,7 @@ public class EventListener
 					if(!player.worldObj.isRemote)
 					{
 						curr = (curr + 1) % actions.size();
-						player.sendChatToPlayer("Command: " + actions.get(curr).name);
+						player.addChatMessage("Command: " + actions.get(curr).name);
 					}
 				} 
 				else 
@@ -88,7 +88,7 @@ public class EventListener
 			
 			} catch(Exception e) {
 				if(!player.worldObj.isRemote)
-					player.sendChatToPlayer("Aquaculture not found");
+					player.addChatMessage("Aquaculture not found");
 			}
 		}
 	}

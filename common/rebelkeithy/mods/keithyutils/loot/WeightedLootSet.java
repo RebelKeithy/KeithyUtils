@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
+import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -30,9 +31,25 @@ public class WeightedLootSet
 		totalWeight = 0;
 	}
 	
-	public void addLoot(Item item, int weight, int min, int max)
+	public void addLoot(Object item, int weight)
 	{
-		addLoot(new ItemStack(item), weight, min, max);
+		addLoot(item, weight, 1, 1);
+	}
+	
+	public void addLoot(Object item, int weight, int min, int max)
+	{
+		if(item instanceof Item)
+		{
+			addLoot(new ItemStack((Item)item), weight, min, max);
+		}
+		else if(item instanceof Block)
+		{
+			addLoot(new ItemStack((Block)item), weight, min, max);
+		}
+		else if(item instanceof ItemStack)
+		{
+			addLoot((ItemStack)item, weight, min, max);
+		}
 	}
 	
 	public void addLoot(ItemStack stack, int weight, int min, int max)

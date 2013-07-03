@@ -23,13 +23,6 @@ public class ItemMetaBlock extends ItemBlock
     {
         return ((MetaBlock)Block.blocksList[this.getBlockID()]).getCreativeTabArray();
     }
-
-	@Override
-    public String getItemDisplayName(ItemStack par1ItemStack)
-    {
-		//return getItemNameIS(par1ItemStack);
-        return ("" + StringTranslate.getInstance().translateNamedKey(this.getLocalizedName(par1ItemStack))).trim();
-    }
 	
 	@Override
 	public int getMetadata(int metadata)

@@ -38,6 +38,8 @@ public class SubItemFood extends SubItem
     /** probably of the set potion effect occurring */
     private float potionEffectProbability;
 
+	private int eatTime;
+
     public SubItemFood(int par1, int par2, float par3, boolean par4)
     {
         super(par1);
@@ -45,12 +47,19 @@ public class SubItemFood extends SubItem
         this.healAmount = par2;
         this.isWolfsFavoriteMeat = par4;
         this.saturationModifier = par3;
+        this.eatTime = 32;
         //this.setCreativeTab(CreativeTabs.tabFood);
     }
 
     public SubItemFood(int par1, int par2, boolean par3)
     {
         this(par1, par2, 0.6F, par3);
+    }
+    
+    public SubItemFood setEatTime(int eatTime)
+    {
+    	this.eatTime = eatTime;
+    	return this;
     }
 
     public ItemStack onEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
@@ -75,7 +84,7 @@ public class SubItemFood extends SubItem
      */
     public int getMaxItemUseDuration(ItemStack par1ItemStack)
     {
-        return 32;
+        return eatTime;
     }
 
     /**

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.ImageBufferDownload;
 import net.minecraft.client.renderer.Tessellator;
@@ -46,10 +47,10 @@ public class CapeTickHandler implements ITickHandler
 							}
 						}
 						
-						if(player.cloakUrl != cloakURL)
-							player.cloakUrl = cloakURL;
+						//if(((AbstractClientPlayer)player).cloakUrl != cloakURL)
+						//	player.cloakUrl = cloakURL;
 
-						Minecraft.getMinecraft().renderEngine.obtainImageData(player.cloakUrl, new ImageBufferDownload());
+						//Minecraft.getMinecraft().renderEngine.obtainImageData(player.cloakUrl, new ImageBufferDownload());
 					}
 				}
 			}
