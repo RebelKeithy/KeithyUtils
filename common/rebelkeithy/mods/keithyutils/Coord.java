@@ -3,6 +3,8 @@ package rebelkeithy.mods.keithyutils;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.world.World;
+
 public class Coord 
 {
 	public int x;
