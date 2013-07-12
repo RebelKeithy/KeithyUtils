@@ -87,9 +87,9 @@ public class WeightedLootSet
 				stack.stackSize = amount;
 				if(stack.itemID == Item.enchantedBook.itemID)
 				{
-			        Enchantment enchantment = Enchantment.field_92090_c[rand.nextInt(Enchantment.field_92090_c.length)];
+			        Enchantment enchantment = Enchantment.enchantmentsList[rand.nextInt(Enchantment.enchantmentsList.length)];
 			        int l = MathHelper.getRandomIntegerInRange(rand, enchantment.getMinLevel(), enchantment.getMaxLevel());
-			        ((ItemEnchantedBook) stack.getItem()).func_92115_a(stack, new EnchantmentData(enchantment, l));
+			        ((ItemEnchantedBook) stack.getItem()).getEnchantedItemStack_do(stack, new EnchantmentData(enchantment, l));
 				}
 				break;
 			}
