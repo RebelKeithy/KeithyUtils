@@ -16,6 +16,8 @@ public class ClientProxy extends CommonProxy
 	
 	public void registerTickHandlers()
 	{
-		TickRegistry.registerTickHandler(new CapeTickHandler(), Side.CLIENT);
+		//TickRegistry.registerTickHandler(new CapeTickHandler(), Side.CLIENT);
+		
+		CapeTickHandler.registerCapes();
 	}
 }
