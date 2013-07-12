@@ -41,7 +41,7 @@ public class SubBlock
 	
 	public SubBlock(int id, int meta, String iconName)
 	{
-		if(Block.blocksList[id] == null)
+		if(!(Block.blocksList[id] instanceof MetaBlock))
 		{
 			metaBlock = new MetaBlock(id);
 			metaBlock.addSubBlock(this, meta);
