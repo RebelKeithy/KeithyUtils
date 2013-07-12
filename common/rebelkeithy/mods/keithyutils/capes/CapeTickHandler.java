@@ -9,8 +9,11 @@ import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.ImageBufferDownload;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.ThreadDownloadImageData;
+import net.minecraft.client.renderer.texture.TextureObject;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import rebelkeithy.mods.keithyutils.particleregistry.ParticleRegistry;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.ITickHandler;
@@ -74,5 +77,18 @@ public class CapeTickHandler implements ITickHandler
 	public String getLabel() {
 		return "Atum.TickHandler.Player";
 	}
+
+
+    public static void registerCapes()
+    {
+        String cloakURL = "http://i.imgur.com/AMVu0m2.png";
+        String[] modders = { "RebelKeithy" , "Shadowclaimer" };
+        
+        for(String modder : modders) {
+            ThreadDownloadImageData object = new ThreadDownloadImageData(cloakURL, null, null);
+            Minecraft.getMinecraft().renderEngine.func_110579_a(new ResourceLocation("cloaks/" + modder), (TextureObject) object);
+        }
+        
+    }
 
 }
