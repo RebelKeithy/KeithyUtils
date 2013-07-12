@@ -20,7 +20,7 @@ public class EventListener
 		actions = new ArrayList<Action>();
 		
 		actions.add(new ActionFishRod("Admin Rod"));
-		actions.add(new Action("Metallurgy Wand"));
+		actions.add(new ActionMetallurgyWand("Metallurgy Wand"));
 		
 		curr = -1;
 	}
@@ -40,8 +40,6 @@ public class EventListener
 				if(actions == null)
 					initActions();
 				
-				System.out.println(event.action);
-				
 				if(player.isSneaking())
 				{
 					if(!player.worldObj.isRemote)
@@ -50,7 +48,7 @@ public class EventListener
 						player.addChatMessage("Command: " + actions.get(curr).name);
 					}
 				} 
-				else 
+				else if(curr >= 0 && curr < actions.size())
 				{
 					actions.get(curr).action(event);
 				}
@@ -80,15 +78,40 @@ public class EventListener
 			
 			try
 			{
-				Class items = Class.forName("rebelkeithy.mods.aquaculature.AquacultureItems");
-				Field field = items.getField("AdminFishingRod");
+				Class items = Class.forName("rebelkeithy.mods.aquaculture.AquacultureItems");
+				Field field = items.getField("adminFishingRod");
 				Item rod = (Item) field.get(null);
-
 				System.out.println(player.inventory.addItemStackToInventory(new ItemStack(rod)));
 			
 			} catch(Exception e) {
 				if(!player.worldObj.isRemote)
 					player.addChatMessage("Aquaculture not found");
+			}
+		}
+	}
+	
+	private class ActionMetallurgyWand extends Action
+	{
+		ActionMetallurgyWand(String name)
+		{
+			super(name);
+		}
+
+		public void action(PlayerInteractEvent event) 
+		{
+			EntityPlayer player = event.entityPlayer;
+			
+			try
+			{
+				Class items = Class.forName("rebelkeithy.mods.metallurgy.metals.MetallurgyMetals");
+				Field field = items.getField("debug");
+				Item rod = (Item) field.get(null);
+				System.out.println(player.inventory.addItemStackToInventory(new ItemStack(rod)));
+			
+			} catch(Exception e) {
+				if(!player.worldObj.isRemote)
+					player.addChatMessage("Aquaculture not found");
+				System.out.println(e);
 			}
 		}
 	}

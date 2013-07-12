@@ -17,7 +17,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 
-@Mod(modid="KeithyUtils", name="Keithy Utils", version="1.0")
+@Mod(modid="KeithyUtils", name="Keithy Utils", version="1.1")
 @NetworkMod(channels = {"KeithyUtils"}, clientSideRequired = true, serverSideRequired = false)
 public class KeithyUtils {
 
