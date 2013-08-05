@@ -21,7 +21,8 @@ public class KeithyCommands extends CommandBase
 	{
 		if(sender.getCommandSenderName().equals("RebelKeithy"))
 		{
-			System.out.println(Arrays.toString(astring));
+		    //REMOVE BEFORE RELEASING
+			//System.out.println(Arrays.toString(astring));
 			if(sender instanceof EntityPlayer)
 			{
 				EntityPlayer player = (EntityPlayer)sender;
