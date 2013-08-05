@@ -81,7 +81,9 @@ public class EventListener
 				Class items = Class.forName("rebelkeithy.mods.aquaculture.AquacultureItems");
 				Field field = items.getField("adminFishingRod");
 				Item rod = (Item) field.get(null);
-				System.out.println(player.inventory.addItemStackToInventory(new ItemStack(rod)));
+				
+				//
+				//System.out.println(player.inventory.addItemStackToInventory(new ItemStack(rod)));
 			
 			} catch(Exception e) {
 				if(!player.worldObj.isRemote)

@@ -51,7 +51,9 @@ public class MetaBlock extends Block {
 	public MetaBlock(int id) 
 	{
 		super(id, Material.rock);
-		System.out.println("test");
+		
+		//BAD KEITH!!! COMMENT OUT BEFORE RELEASE!
+		//System.out.println("test");
 		subBlocks = new SubBlock[16];
 		//for(int i = 0; i > 16; i++)
 		//	subBlocks[i] = air;
@@ -233,7 +235,8 @@ public class MetaBlock extends Block {
     	int meta = world.getBlockMetadata(x, y, z);
     	if(subBlocks[meta] != null)
     	{
-    		System.out.println("returning " + subBlocks[meta].getDamageValue(world, x, y, z));
+    	    //COMMENT BEFORE RELEASE
+    		//System.out.println("returning " + subBlocks[meta].getDamageValue(world, x, y, z));
     		return subBlocks[meta].getDamageValue(world, x, y, z);
     	}
     	return meta;
