@@ -23,7 +23,7 @@ public class SubItem
 	{
 		itemID = id + 256;
 		
-		if(Item.itemsList[id+256] == null)
+		if(Item.itemsList[itemID] == null)
 		{
 			item = new MetaItem(id);
 		} 
@@ -46,24 +46,24 @@ public class SubItem
     /**
      * returns this;
      */
-    public SubItem setCreativeTab(CreativeTabs par1CreativeTabs)
+    public SubItem setCreativeTab(CreativeTabs creativeTab)
     {
-        item.setCreativeTab(par1CreativeTabs);
+        item.setCreativeTab(creativeTab);
         return this;
     }
 
     /**
      * Sets the unlocalized name of this item to the string passed as the parameter, prefixed by "item."
      */
-    public SubItem setUnlocalizedName(String par1Str)
+    public SubItem setUnlocalizedName(String name)
     {
-        this.unlocalizedName = par1Str;
+        this.unlocalizedName = name;
         return this;
     }
     
-    public SubItem setTextureName(String str)
+    public SubItem setTextureName(String texture)
     {
-    	this.textureName = str;
+    	this.textureName = texture;
     	return this;
     }
 	
@@ -72,39 +72,39 @@ public class SubItem
 		return getItemStack(1);
 	}
 
-	public ItemStack getItemStack(int i) 
+	public ItemStack getItemStack(int size) 
 	{
-		return new ItemStack(itemID, i, damage);
+		return new ItemStack(itemID, size, damage);
 	}
 
-    public String getUnlocalizedName(ItemStack par1ItemStack)
+    public String getUnlocalizedName(ItemStack stack)
     {
     	return unlocalizedName;
     }
 
-	public void registerIcons(IconRegister par1IconRegister) 
+	public void registerIcons(IconRegister register) 
 	{
-        this.itemIcon = par1IconRegister.registerIcon(this.textureName);
+        this.itemIcon = register.registerIcon(this.textureName);
 	}
 
-	public ItemStack onEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) 
+	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) 
 	{
-		return par1ItemStack;
+		return stack;
 	}
 
-	public int getMaxItemUseDuration(ItemStack par1ItemStack) 
+	public int getMaxItemUseDuration(ItemStack stack) 
 	{
 		return 0;
 	}
 
-	public EnumAction getItemUseAction(ItemStack par1ItemStack) 
+	public EnumAction getItemUseAction(ItemStack stack) 
 	{
 		return EnumAction.none;
 	}
 
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World,	EntityPlayer par3EntityPlayer) 
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) 
 	{
-		return par1ItemStack;
+		return stack;
 	}
 
 	public Icon getIcon() 
@@ -112,7 +112,7 @@ public class SubItem
 		return itemIcon;
 	}
 
-	public Icon getIcon(ItemStack par1ItemStack) 
+	public Icon getIcon(ItemStack stack) 
 	{
 		return getIcon();
 	}
