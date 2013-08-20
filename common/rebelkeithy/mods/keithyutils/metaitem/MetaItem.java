@@ -22,7 +22,7 @@ public class MetaItem extends Item
 	public MetaItem(int par1) 
 	{
 		super(par1);
-		this.setUnlocalizedName("MetalItem");
+		this.setUnlocalizedName("MetaItem");
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
 	}
